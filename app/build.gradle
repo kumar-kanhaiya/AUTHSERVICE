@@ -19,26 +19,31 @@ ext{
     lombokVersion = "1.18.30"
 }
 dependencies {
-    // Guava library
+
+    testImplementation 'junit:junit:4.13.2'
+
     implementation 'com.google.guava:guava:33.2.1-jre'
-
-
 
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 
-    // Spring Cloud
+
     implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap:4.1.1'
-    implementation 'org.modelmapper:modelmapper:3.2.1'
-    implementation group: 'mysql',name: 'mysql-connector-java' , version:'8.0.33'
 
-    // Testing
-    testImplementation 'junit:junit:4.13.2'
+    implementation 'org.modelmapper:modelmapper:3.2.0'
+
+    implementation 'mysql:mysql-connector-java:8.0.33'
+
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
+    testImplementation 'org.projectlombok:lombok:1.18.34'
 }
+
 
 testing {
     suites {
