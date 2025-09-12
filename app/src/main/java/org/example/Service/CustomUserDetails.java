@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class CustomUserDetails extends UserInfo , UserDetails {
+public class CustomUserDetails extends UserInfo implements UserDetails {
 
     private String username;
 
