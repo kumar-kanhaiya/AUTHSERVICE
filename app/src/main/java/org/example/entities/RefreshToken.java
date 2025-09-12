@@ -21,7 +21,7 @@ import java.time.Instant;
 public class RefreshToken {
 
     @Id // creating the id
-    @GeneratedValue(strategy = GenerationType.AUTO) // generate the automatic value
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Let the DB handle auto-increment IDs
     private int id;
 
     private String token;
