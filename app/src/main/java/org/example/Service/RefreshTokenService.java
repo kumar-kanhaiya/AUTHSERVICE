@@ -20,7 +20,7 @@ public class RefreshTokenService {
     UserRepository userRepository;
 
     public RefreshToken createRefreshToken(String username){
-        UserInfo userInfoExtracted = UserRepository.findByUsername(username);
+        UserInfo userInfoExtracted = userRepository.findByUsername(username);
         RefreshToken refreshToken = RefreshToken.builder()
                 .userInfo(userInfoExtracted)
                 .token(UUID.randomUUID().toString())
@@ -30,5 +30,15 @@ public class RefreshTokenService {
         return refreshTokenRepository.save(refreshToken);
 
     }
+
+    public RefreshToken verifyExpiration(RefreshToken token){
+        if(token.getExpireDate().compareTo(Instant.now())<0){
+            refreshTokenRepository.delete(token);
+            throw new RuntimeException(token.getToken() + " Refresh token is expired. Please make a new login...!");
+        }
+        return token;
+    }
+
+
 
 }
