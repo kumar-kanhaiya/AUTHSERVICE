@@ -12,7 +12,7 @@ public interface RefreshTokenRepository extends CrudRepository<RefreshToken,Inte
 
     Optional<RefreshToken> findByToken(String token);
 
-    UserInfo findByUsernameAndPassword(String username , String password)
+
 
 
 }
