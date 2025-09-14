@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Base64;
+import java.util.Date;
 import java.util.function.Function;
 
 @Service
@@ -33,6 +34,10 @@ public class JwtService {
                 .parseClaimsJws(token)
                 .getBody();
 
+    }
+
+    public Date extractExpiration(String token){
+        return extractClaim(token , Claims::getExpiration);
     }
 
     private Key getSignKey(){
