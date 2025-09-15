@@ -10,10 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
-import java.util.Base64;
-import java.util.Date;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import java.util.function.Function;
 
 @Service
@@ -68,6 +65,9 @@ public class JwtService {
                 .signWith(getSignKey() , SignatureAlgorithm.HS256).compact();
     }
     public String GenerateToken(String username){
-        return createToken(Map.of() , username);
+//        return createToken(Map.of() , username);
+        Map<String,Object> claims = new HashMap<>();
+        return createToken(claims , username);
     }
+
 }

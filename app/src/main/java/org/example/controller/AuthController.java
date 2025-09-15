@@ -45,10 +45,10 @@ public class AuthController {
             RefreshToken refreshToken = refreshTokenService.createRefreshToken(userInfoDto.getUserName());
             String jwtToken = jwtService.GenerateToken(userInfoDto.getUserName());
             return new ResponseEntity<>(JwtResponseDTO.builder().accessToken(jwtToken).
-                    token(refreshToken.getToken()).build(), HttpStatus.OK;
+                    token(refreshToken.getToken()).build(), HttpStatus.OK);
         }
         catch (Exception e){
-            return new ResponseEntity("Exception in User Service", HttpStatus.INTERNAL_SERVER_ERROR)
+            return new ResponseEntity("Exception in User Service", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
